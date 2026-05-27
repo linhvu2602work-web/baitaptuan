@@ -113,16 +113,12 @@ void xoa(Node* &head, Ngay x){
 
 //================= MAIN =================
 int main(){
-
     Node* head = NULL;
-
     int n;
     cout<<"Nhap so sinh vien: ";
     cin>>n;
-
     for(int i=0;i<n;i++){
         SinhVien x;
-
         cout<<"\nNhap sinh vien thu "<<i+1<<endl;
         nhapSV(x);
         // Chọn 1 trong 2 cách thêm:
@@ -134,7 +130,6 @@ int main(){
 
     //----- TÌM SV CÙNG NGÀY SINH -----
     Ngay x;
-
     cout<<"\nNhap ngay can tim: ";
     cin>>x.d>>x.m>>x.y;
 
