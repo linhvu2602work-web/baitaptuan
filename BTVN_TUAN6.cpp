@@ -18,7 +18,6 @@ struct Node {
     Node *next;
 };
 
-//====================== HÀM DÙNG CHUNG ======================
 
 Node* taoNode(SinhVien x) {
     Node* p = new Node;
