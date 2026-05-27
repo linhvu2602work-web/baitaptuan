@@ -1,196 +1,107 @@
+I. Phân tích giải thuật
+
+Mô tả:
+Lưu trữ danh sách file trong thư mục bằng danh sách liên kết đơn
+File được sắp xếp theo thời gian
+
+Thực hiện các thao tác:
+1. Khai báo cấu trúc
+2. Thêm file (copy paste) nhưng vẫn giữ thứ tự thời gian
+3. Tính tổng dung lượng
+4. Chọn file để backup vào USB 32GB → xóa file nhỏ nhất nếu cần
 #include <iostream>
-#include <cstring>
+#include <string>
 using namespace std;
 
-
-struct Ngay {
-    int d, m, y;
-};
-
-struct SinhVien {
-    char ma[10], ten[50];
-    Ngay ns;
+struct File {
+    string name;
+    int size;
+    long time;
 };
 
 struct Node {
-    SinhVien data;
-    Node *next;
+    File data;
+    Node* next;
 };
 
+struct LinkedList {
+    Node* head;
+};
 
-Node* taoNode(SinhVien x) {
-    Node* p = new Node;
-    p->data = x;
-    p->next = NULL;
-    return p;
+void init(LinkedList &list) {
+    list.head = NULL;
 }
 
-bool trungNgay(Ngay a, Ngay b) {
-    return a.d == b.d && a.m == b.m && a.y == b.y;
-}
+void insertFile(LinkedList &list, File f) {
+    Node* newNode = new Node{f, NULL};
 
-void nhapSV(SinhVien &x) {
-    cin.ignore();
-
-    cout << "Ma: ";
-    cin.getline(x.ma, 10);
-
-    cout << "Ten: ";
-    cin.getline(x.ten, 50);
-
-    cout << "Ngay sinh (d m y): ";
-    cin >> x.ns.d >> x.ns.m >> x.ns.y;
-}
-
-void xuatDS(Node* head) {
-    while(head) {
-        cout << head->data.ma << " - "
-             << head->data.ten << " - "
-             << head->data.ns.d << "/"
-             << head->data.ns.m << "/"
-             << head->data.ns.y << endl;
-
-        head = head->next;
-    }
-}
-
-
-//========================== BÀI 1 ==============================
-// Nhập danh sách sinh viên và thêm cuối danh sách
-
-
-void themCuoi(Node* &head, SinhVien x) {
-    Node* p = taoNode(x);
-
-    if(!head) {
-        head = p;
+    if (list.head == NULL || f.time < list.head->data.time) {
+        newNode->next = list.head;
+        list.head = newNode;
         return;
     }
 
-    Node* q = head;
-    while(q->next)
-        q = q->next;
+    Node* cur = list.head;
+    while (cur->next != NULL && cur->next->data.time < f.time) {
+        cur = cur->next;
+    }
 
-    q->next = p;
+    newNode->next = cur->next;
+    cur->next = newNode;
 }
 
+int totalSize(LinkedList list) {
+    int sum = 0;
+    Node* cur = list.head;
 
-//========================== BÀI 2 ==============================
-// Thêm sinh viên theo thứ tự mã tăng dần
+    while (cur != NULL) {
+        sum += cur->data.size;
+        cur = cur->next;
+    }
 
-void themTheoThuTu(Node* &head, SinhVien x) {
-    Node* p = taoNode(x);
+    return sum;
+}
 
-    if(!head || strcmp(x.ma, head->data.ma) < 0) {
-        p->next = head;
-        head = p;
+// tìm file nhỏ nhất
+Node* findMin(LinkedList list) {
+    Node* minNode = list.head;
+    Node* cur = list.head;
+
+    while (cur != NULL) {
+        if (cur->data.size < minNode->data.size) {
+            minNode = cur;
+        }
+        cur = cur->next;
+    }
+
+    return minNode;
+}
+
+// xóa node bất kỳ
+void deleteNode(LinkedList &list, Node* target) {
+    if (list.head == NULL) return;
+
+    if (list.head == target) {
+        Node* temp = list.head;
+        list.head = list.head->next;
+        delete temp;
         return;
     }
 
-    Node* q = head;
-
-    while(q->next &&
-          strcmp(q->next->data.ma, x.ma) < 0)
-    {
-        q = q->next;
+    Node* cur = list.head;
+    while (cur->next != target) {
+        cur = cur->next;
     }
 
-    p->next = q->next;
-    q->next = p;
+    Node* temp = cur->next;
+    cur->next = temp->next;
+    delete temp;
 }
 
-
-//========================== BÀI 3 ==============================
-// In sinh viên có cùng ngày sinh
-
-void inCungNgay(Node* head, Ngay x) {
-    bool found = false;
-
-    while(head) {
-        if(trungNgay(head->data.ns, x)) {
-            cout << head->data.ma
-                 << " - "
-                 << head->data.ten << endl;
-
-            found = true;
-        }
-
-        head = head->next;
+// backup
+void backupUSB(LinkedList &list, int capacity) {
+    while (totalSize(list) > capacity) {
+        Node* minNode = findMin(list);
+        deleteNode(list, minNode);
     }
-
-    if(!found)
-        cout << "Khong tim thay!\n";
-}
-
-//========================== BÀI 4 ==============================
-// Xóa sinh viên có cùng ngày sinh
-
-void xoaTheoNgay(Node* &head, Ngay x) {
-
-    // Xóa ở đầu danh sách
-    while(head && trungNgay(head->data.ns, x)) {
-        Node* t = head;
-        head = head->next;
-        delete t;
-    }
-
-    // Xóa các node phía sau
-    Node* p = head;
-
-    while(p && p->next) {
-
-        if(trungNgay(p->next->data.ns, x)) {
-            Node* t = p->next;
-            p->next = t->next;
-            delete t;
-        }
-        else {
-            p = p->next;
-        }
-    }
-}
-
-//==============================================================
-//============================ MAIN =============================
-//==============================================================
-
-int main() {
-
-    Node* head = NULL;
-
-    int n;
-
-    cout << "Nhap so luong sinh vien: ";
-    cin >> n;
-
-    // ===== Dùng bài 1: thêm cuối =====
-    for(int i = 0; i < n; i++) {
-        SinhVien x;
-
-        cout << "\nNhap sinh vien thu " << i + 1 << ":\n";
-        nhapSV(x);
-
-        themCuoi(head, x);
-    }
-
-    cout << "\nDanh sach sinh vien:\n";
-    xuatDS(head);
-
-    // ===== Dùng bài 3 =====
-    Ngay x;
-
-    cout << "\nNhap ngay can tim (d m y): ";
-    cin >> x.d >> x.m >> x.y;
-
-    cout << "\nSinh vien cung ngay sinh:\n";
-    inCungNgay(head, x);
-
-    // ===== Dùng bài 4 =====
-    cout << "\nXoa sinh vien cung ngay sinh...\n";
-    xoaTheoNgay(head, x);
-
-    cout << "\nDanh sach sau khi xoa:\n";
-    xuatDS(head);
-
-    return 0;
 }
