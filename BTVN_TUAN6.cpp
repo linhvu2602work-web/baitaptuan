@@ -13,7 +13,6 @@ Thực hiện các thao tác:
 #include <iostream>
 #include <string>
 using namespace std;
-
 struct File {
     string name;
     int size;
@@ -31,7 +30,6 @@ void init(LinkedList &list) {
 }
 void insertFile(LinkedList &list, File f) {
     Node* newNode = new Node{f, NULL};
-
     if (list.head == NULL || f.time < list.head->data.time) {
         newNode->next = list.head;
         list.head = newNode;
@@ -47,15 +45,12 @@ void insertFile(LinkedList &list, File f) {
 int totalSize(LinkedList list) {
     int sum = 0;
     Node* cur = list.head;
-
     while (cur != NULL) {
         sum += cur->data.size;
         cur = cur->next;
     }
-
     return sum;
 }
-
 // tìm file nhỏ nhất
 Node* findMin(LinkedList list) {
     Node* minNode = list.head;
@@ -68,28 +63,23 @@ Node* findMin(LinkedList list) {
     }
     return minNode;
 }
-
 // xóa node bất kỳ
 void deleteNode(LinkedList &list, Node* target) {
     if (list.head == NULL) return;
-
     if (list.head == target) {
         Node* temp = list.head;
         list.head = list.head->next;
         delete temp;
         return;
     }
-
     Node* cur = list.head;
     while (cur->next != target) {
         cur = cur->next;
     }
-
     Node* temp = cur->next;
     cur->next = temp->next;
     delete temp;
 }
-
 // backup
 void backupUSB(LinkedList &list, int capacity) {
     while (totalSize(list) > capacity) {
