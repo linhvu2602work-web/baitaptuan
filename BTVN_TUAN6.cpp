@@ -9,6 +9,7 @@ Thực hiện các thao tác:
 2. Thêm file (copy paste) nhưng vẫn giữ thứ tự thời gian
 3. Tính tổng dung lượng
 4. Chọn file để backup vào USB 32GB → xóa file nhỏ nhất nếu cần
+
 #include <iostream>
 #include <string>
 using namespace std;
