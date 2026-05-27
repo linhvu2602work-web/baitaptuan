@@ -2,7 +2,6 @@
 #include <cstring>
 using namespace std;
 
-//====================== CẤU TRÚC DÙNG CHUNG ======================
 
 struct Ngay {
     int d, m, y;
