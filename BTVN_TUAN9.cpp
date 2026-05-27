@@ -79,19 +79,15 @@ bool trungNgay(Ngay a, Ngay b){
 //================= IN SV CÙNG NGÀY SINH =================
 void inCungNgay(Node* head, Ngay x){
     bool found = false;
-
     while(head){
         if(trungNgay(head->data.ns,x)){
             cout<<head->data.ma
                 <<" - "
                 <<head->data.ten<<endl;
-
             found = true;
         }
-
         head = head->next;
     }
-
     if(!found)
         cout<<"Khong tim thay\n";
 }
