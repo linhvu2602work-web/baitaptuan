@@ -68,7 +68,6 @@ void xuat(Node* head){
             <<head->data.ns.d<<"/"
             <<head->data.ns.m<<"/"
             <<head->data.ns.y<<endl;
-
         head = head->next;
     }
 }
@@ -77,7 +76,6 @@ void xuat(Node* head){
 bool trungNgay(Ngay a, Ngay b){
     return a.d==b.d && a.m==b.m && a.y==b.y;
 }
-
 //================= IN SV CÙNG NGÀY SINH =================
 void inCungNgay(Node* head, Ngay x){
     bool found = false;
