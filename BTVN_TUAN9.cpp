@@ -26,10 +26,8 @@ void nhapSV(SinhVien &x){
     cin.ignore();
     cout<<"Ma: ";
     cin.getline(x.ma,10);
-
     cout<<"Ten: ";
     cin.getline(x.ten,50);
-
     cout<<"Ngay sinh: ";
     cin>>x.ns.d>>x.ns.m>>x.ns.y;
 }
