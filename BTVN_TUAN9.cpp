@@ -132,15 +132,12 @@ int main(){
     Ngay x;
     cout<<"\nNhap ngay can tim: ";
     cin>>x.d>>x.m>>x.y;
-
     cout<<"\nSinh vien cung ngay sinh:\n";
     inCungNgay(head,x);
 
     //----- XÓA SV CÙNG NGÀY SINH -----
     xoa(head,x);
-
     cout<<"\nDanh sach sau khi xoa:\n";
     xuat(head);
-
     return 0;
 }
