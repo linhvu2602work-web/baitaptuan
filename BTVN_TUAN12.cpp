@@ -35,7 +35,6 @@ void taoDongBanDau(int arr[], int n) {
         inMang(arr, n);
     }
 }
-
 void sapXepHeap(int arr[], int n) {
     int buoc = 1;
 
