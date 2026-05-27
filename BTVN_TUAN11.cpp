@@ -1,12 +1,10 @@
 #include <iostream>
 using namespace std;
-
 struct Node {
     char data;
     Node* left;
     Node* right;
 };
-
 Node* taoNode(char x) {
     Node* p = new Node;
     p->data = x;
@@ -22,16 +20,12 @@ Node* cayDayDu() {
     Node* E = taoNode('E');
     Node* F = taoNode('F');
     Node* G = taoNode('G');
-
     A->left = B;
     A->right = C;
-
     B->left = D;
     B->right = E;
-
     C->left = F;
     C->right = G;
-
     return A;
 } 
 Node* cayLechTrai() {
@@ -39,11 +33,9 @@ Node* cayLechTrai() {
     Node* B = taoNode('B');
     Node* C = taoNode('C');
     Node* D = taoNode('D');
-
     A->left = B;
     B->left = C;
     C->left = D;
-
     return A;
 }
 Node* cayLechPhai() {
