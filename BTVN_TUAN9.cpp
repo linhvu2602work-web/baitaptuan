@@ -35,16 +35,13 @@ void nhapSV(SinhVien &x){
 //================= THÊM CUỐI =================
 void themCuoi(Node* &head, SinhVien x){
     Node* p = taoNode(x);
-
     if(head == NULL){
         head = p;
         return;
     }
-
     Node* q = head;
     while(q->next)
         q = q->next;
-
     q->next = p;
 }
 
