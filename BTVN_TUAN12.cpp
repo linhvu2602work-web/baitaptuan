@@ -37,7 +37,6 @@ void taoDongBanDau(int arr[], int n) {
 }
 void sapXepHeap(int arr[], int n) {
     int buoc = 1;
-
     for (int i = n - 1; i > 0; i--) {
         swap(arr[0], arr[i]);
 
