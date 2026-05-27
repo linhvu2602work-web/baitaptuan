@@ -57,7 +57,7 @@ void xuatDS(Node* head) {
 
 //========================== BÀI 1 ==============================
 // Nhập danh sách sinh viên và thêm cuối danh sách
-//==============================================================
+
 
 void themCuoi(Node* &head, SinhVien x) {
     Node* p = taoNode(x);
@@ -74,10 +74,9 @@ void themCuoi(Node* &head, SinhVien x) {
     q->next = p;
 }
 
-//==============================================================
+
 //========================== BÀI 2 ==============================
 // Thêm sinh viên theo thứ tự mã tăng dần
-//==============================================================
 
 void themTheoThuTu(Node* &head, SinhVien x) {
     Node* p = taoNode(x);
