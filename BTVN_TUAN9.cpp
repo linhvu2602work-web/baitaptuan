@@ -129,12 +129,10 @@ int main(){
 
         cout<<"\nNhap sinh vien thu "<<i+1<<endl;
         nhapSV(x);
-
         // Chọn 1 trong 2 cách thêm:
         // themCuoi(head,x);
         themTheoThuTu(head,x);
     }
-
     cout<<"\nDanh sach sinh vien:\n";
     xuat(head);
 
