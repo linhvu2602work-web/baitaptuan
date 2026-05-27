@@ -19,20 +19,16 @@ struct File {
     int size;
     long time;
 };
-
 struct Node {
     File data;
     Node* next;
 };
-
 struct LinkedList {
     Node* head;
 };
-
 void init(LinkedList &list) {
     list.head = NULL;
 }
-
 void insertFile(LinkedList &list, File f) {
     Node* newNode = new Node{f, NULL};
 
@@ -41,16 +37,13 @@ void insertFile(LinkedList &list, File f) {
         list.head = newNode;
         return;
     }
-
     Node* cur = list.head;
     while (cur->next != NULL && cur->next->data.time < f.time) {
         cur = cur->next;
     }
-
     newNode->next = cur->next;
     cur->next = newNode;
 }
-
 int totalSize(LinkedList list) {
     int sum = 0;
     Node* cur = list.head;
@@ -67,14 +60,12 @@ int totalSize(LinkedList list) {
 Node* findMin(LinkedList list) {
     Node* minNode = list.head;
     Node* cur = list.head;
-
     while (cur != NULL) {
         if (cur->data.size < minNode->data.size) {
             minNode = cur;
         }
         cur = cur->next;
     }
-
     return minNode;
 }
 
