@@ -9,7 +9,6 @@ void inMang(int arr[], int n) {
     }
     cout << " ]\n";
 }
-
 void vunDong(int arr[], int n, int i) {
     int Cha = i;
     int conTrai = 2 * i + 1;
