@@ -94,17 +94,13 @@ void inCungNgay(Node* head, Ngay x){
 
 //================= XÓA SV THEO NGÀY SINH =================
 void xoa(Node* &head, Ngay x){
-
     while(head && trungNgay(head->data.ns,x)){
         Node* t = head;
         head = head->next;
         delete t;
     }
-
     Node* p = head;
-
     while(p && p->next){
-
         if(trungNgay(p->next->data.ns,x)){
             Node* t = p->next;
             p->next = t->next;
