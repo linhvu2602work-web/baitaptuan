@@ -50,7 +50,6 @@ void sapXepHeap(int arr[], int n) {
 }
 
 int main() {
-
     int arr1[] = {4, 1, 3, 2, 16, 9, 10, 14, 8, 7};
     int n1 = sizeof(arr1) / sizeof(arr1[0]);
 
