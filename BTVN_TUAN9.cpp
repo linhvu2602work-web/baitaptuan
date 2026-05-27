@@ -1,7 +1,6 @@
 #include <iostream>
 #include <cstring>
 using namespace std;
-
 struct Ngay{
     int d,m,y;
 };
