@@ -24,7 +24,6 @@ Node* insert(Node* root, int x) {
         root->right = insert(root->right, x);
     return root;
 }
-
 // Tìm kiếm trên BST
 Node* searchBST(Node* root, int x) {
     if (root == NULL || root->data == x)
