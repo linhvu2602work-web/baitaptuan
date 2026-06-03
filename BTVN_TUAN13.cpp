@@ -6,7 +6,6 @@ struct Node {
     Node *left;
     Node *right;
 };
-
 // Tạo nút mới
 Node* createNode(int x) {
     Node* p = new Node;
