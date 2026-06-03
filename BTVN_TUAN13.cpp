@@ -32,7 +32,6 @@ Node* searchBST(Node* root, int x) {
         return searchBST(root->left, x);
     return searchBST(root->right, x);
 }
-
 int main() {
     int a[] = {2001, 2002, 2006, 2007, 2003,
                2004, 2005, 2001, 1999, 2004};
