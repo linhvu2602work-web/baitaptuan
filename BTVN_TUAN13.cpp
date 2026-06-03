@@ -1,6 +1,5 @@
 #include <iostream>
 using namespace std;
-
 // Cấu trúc nút
 struct Node {
     int data;
