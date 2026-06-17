@@ -7,7 +7,7 @@ using namespace std;
 string city[MAX] = {
     "Ha Noi",
     "Hai Duong",
-    "Phu Ly",
+    "Phu Ly"
     "Hoa Binh",
     "Son Tay",
     "Thai Nguyen",
