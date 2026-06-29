@@ -38,6 +38,7 @@ void taoDoThi(Graph &soDo, int soLuongDinh)
         for(int j = 0; j < soLuongDinh; j++)
             soDo.matrix[i][j] = 0;
 }
+
 // Ham noi tuyen duong
 void noiTuyenDuong(Graph &soDo, int tinhA, int tinhB, int khoangCach)
 {
