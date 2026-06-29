@@ -97,6 +97,7 @@ void chayWarshall(Graph soDo, int ketQuaLienThong[MAX_NODES][MAX_NODES])
         }
     }
 }
+
 // Thuật toán Dijkstra tìm đường đi tối ưu bằng hàng đợi ưu tiên
 void chayDijkstra(Graph soDo, int diemDau, int tuyenNganNhat[MAX_NODES], int vetDuongDi[MAX_NODES])
 {
