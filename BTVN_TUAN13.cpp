@@ -44,6 +44,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         root = insert(root, a[i]);
     }
+    
     // Tìm kiếm năm sinh 2004
     int x = 2004;
     Node* p = searchBST(root, x);
