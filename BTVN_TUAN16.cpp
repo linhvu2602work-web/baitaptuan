@@ -45,6 +45,7 @@ void noiTuyenDuong(Graph &soDo, int tinhA, int tinhB, int khoangCach)
     soDo.matrix[tinhA][tinhB] = khoangCach;
     soDo.matrix[tinhB][tinhA] = khoangCach;
 }
+
 // Ham hien thi
 void hienThiBang(int bangSo[MAX_NODES][MAX_NODES], int kichThuoc)
 {
