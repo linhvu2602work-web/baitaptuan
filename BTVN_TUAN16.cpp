@@ -66,6 +66,7 @@ void hienThiBang(int bangSo[MAX_NODES][MAX_NODES], int kichThuoc)
         cout << endl;
     }
 }
+
 // Thuật toán Warshall kiểm tra khả năng thông suốt giữa các tỉnh
 void chayWarshall(Graph soDo, int ketQuaLienThong[MAX_NODES][MAX_NODES])
 {
