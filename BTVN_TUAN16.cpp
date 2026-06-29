@@ -138,6 +138,7 @@ void chayDijkstra(Graph soDo, int diemDau, int tuyenNganNhat[MAX_NODES], int vet
         }
     }
 }
+
 // Hàm đệ quy xuất lộ trình di chuyển ra màn hình
 void inLoTrinh(int diemCuoi, int vetDuongDi[])
 {
