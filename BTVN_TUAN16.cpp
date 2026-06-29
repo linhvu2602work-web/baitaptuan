@@ -28,6 +28,7 @@ struct Graph
     int totalNodes;
     int matrix[MAX_NODES][MAX_NODES];
 };
+
 // cau hinh do thi
 void taoDoThi(Graph &soDo, int soLuongDinh)
 {
